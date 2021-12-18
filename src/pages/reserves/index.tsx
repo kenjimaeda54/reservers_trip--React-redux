@@ -2,8 +2,12 @@ import { Container, Header, TitleHeader, TitleHeaderBold, Section, Img, Title, Q
 import { useSelector } from 'react-redux'
 import { Trips } from '../../utils'
 
+interface ITrips extends Trips {
+  amount: number;
+}
+
 export default function Reserves () {
-  const reserves: Trips[] = useSelector(state => state.reserveReducer)
+  const reserves: ITrips[] = useSelector(state => state.reserveReducer)
 
   return (
     <Container>
@@ -15,7 +19,7 @@ export default function Reserves () {
             <Section key={reserve.id}>
               <Img src={reserve.image} alt="img card reserve"/>
               <Title>{reserve.title}</Title>
-              <Quantity>Quantidade 2</Quantity>
+              <Quantity>Quantidade {reserve.amount}</Quantity>
               <Button>
                 <Delete />
               </Button>
