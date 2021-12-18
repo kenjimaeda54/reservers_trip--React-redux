@@ -2,7 +2,8 @@ export default {
   colors: {
     primary: '#242424',
     white: '#fff',
-    purple: '#7D40E7'
+    purple: '#7D40E7',
+    black: ' #000'
 
   },
   fonts: {
