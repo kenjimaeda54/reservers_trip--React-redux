@@ -1,9 +1,11 @@
 import { Fragment, useEffect, useState } from 'react'
 import { api } from '../../services/api'
+import { useDispatch } from 'react-redux'
 import { Trips } from '../../utils'
 import { Container, List, Image, Title, Button, Span, Airplane, WrapList, TextButton } from './styles'
 
 export default function Home () {
+  const dispatch = useDispatch()
   const [trips, setTrips] = useState<Trips[]>([])
 
   useEffect(() => {
@@ -12,6 +14,10 @@ export default function Home () {
       setTrips(response.data)
     })()
   }, [])
+
+  function handleAddReserve (trips: Trips) {
+    dispatch({ type: 'ADD_TRIPS', payload: trips })
+  }
 
   return (
     <Container>
@@ -22,7 +28,7 @@ export default function Home () {
              <Image src={it.image} alt="img trip" />
              <Title>{it.title}</Title>
              <Span>Status: {it.status ? 'Disponivel' : 'Indisponivel' }</Span>
-             <Button>
+             <Button onClick={() => handleAddReserve(it)} >
                 <Airplane />
                 <TextButton> Solicitar reserva   </TextButton>
              </Button>
