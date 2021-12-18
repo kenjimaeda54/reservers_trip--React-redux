@@ -5,18 +5,39 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   width:100%;
-  height:100%;
+  min-height:100%;
   padding: 50px;
+  gap: 20px;
+
+`
+
+export const Header = styled.div`
+  display:flex;
+  flex-direction:row;
+  gap: 25px;
+  align-items: center;
+`
+
+export const TitleHeader = styled.h1`
+  font-size: 20px;
+  line-height: 25px;
+  font-weight: ${({ theme }) => theme.fonts.Regular};
+  color: ${({ theme }) => theme.colors.purple};
+
+`
+
+export const TitleHeaderBold = styled(TitleHeader)`
+  font-weight: ${({ theme }) => theme.fonts.Bold};
 `
 
 export const Section = styled.div`
   display: flex;
-  margin-top: 50px;
   justify-content: space-between;
   align-items: center;
   padding: 10px 45px 10px 10px;
   background-color: ${({ theme }) => theme.colors.white};
   border-radius: 5px;
+  overflow: hidden;
 `
 
 export const Img = styled.img`
@@ -25,7 +46,9 @@ export const Img = styled.img`
  border-radius: 5px;
 `
 
-export const Title = styled.h3``
+export const Title = styled.h3`
+
+`
 
 export const Quantity = styled.span``
 

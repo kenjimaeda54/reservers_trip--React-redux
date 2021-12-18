@@ -4,6 +4,11 @@ import { useDispatch } from 'react-redux'
 import { Trips } from '../../utils'
 import { Container, List, Image, Title, Button, Span, Airplane, WrapList, TextButton } from './styles'
 
+export type DispatchProps = {
+  type: string
+  payload: Trips
+}
+
 export default function Home () {
   const dispatch = useDispatch()
   const [trips, setTrips] = useState<Trips[]>([])
@@ -16,7 +21,7 @@ export default function Home () {
   }, [])
 
   function handleAddReserve (trips: Trips) {
-    dispatch({ type: 'ADD_TRIPS', payload: trips })
+    dispatch({ type: 'ADD_RESERVE', payload: trips })
   }
 
   return (
