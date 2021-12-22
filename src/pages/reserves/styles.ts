@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { MdDelete } from 'react-icons/md'
+import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
 
 export const Container = styled.div`
   display: flex;
@@ -47,10 +48,21 @@ export const Img = styled.img`
 `
 
 export const Title = styled.h3`
+  font-size: 23px;
+  line-height: 27px;
+  font-weight: ${({ theme }) => theme.fonts.Bold};
+  color: ${({ theme }) => theme.colors.black};
+  width: 50%;
 
 `
 
-export const Quantity = styled.span``
+export const Quantity = styled.span`
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: ${({ theme }) => theme.fonts.Regular};
+  color: ${({ theme }) => theme.colors.purple};
+
+`
 
 export const Delete = styled(MdDelete)`
   width: 25px;
@@ -85,5 +97,25 @@ export const TitleReserve = styled.strong`
   line-height: 20px;
   font-weight: ${({ theme }) => theme.fonts.Regular};
   color: ${({ theme }) => theme.colors.white};
+
+`
+
+export const WrapQuantity = styled.div`
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   gap: 30px;
+`
+
+export const Minus = styled(AiOutlineMinus)`
+   width: 20px;
+   height: 20px;
+   color: ${({ theme }) => theme.colors.purple};
+`
+
+export const Plus = styled(AiOutlinePlus)`
+   width: 20px;
+   height: 20px;
+   color: ${({ theme }) => theme.colors.purple};
 
 `

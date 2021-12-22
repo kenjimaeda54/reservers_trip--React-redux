@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { reserveReducer } from '../modules/reserves'
+import { reserveReducer } from './reserves/reducer'
 
 export const reducers = combineReducers({
   reserveReducer

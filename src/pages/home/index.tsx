@@ -3,6 +3,7 @@ import { api } from '../../services/api'
 import { useDispatch } from 'react-redux'
 import { Trips } from '../../utils'
 import { Container, List, Image, Title, Button, Span, Airplane, WrapList, TextButton } from './styles'
+import { addReserveRequest } from '../../store/modules/reserves/action'
 
 export type DispatchProps = {
   type: string
@@ -21,7 +22,7 @@ export default function Home () {
   }, [])
 
   function handleAddReserve (trips: Trips) {
-    dispatch({ type: 'ADD_RESERVE', payload: trips })
+    dispatch(addReserveRequest(trips.id))
   }
 
   return (
@@ -39,6 +40,7 @@ export default function Home () {
              </Button>
            </WrapList>
           </Fragment>
+
       )}
       </List>
     </Container>
