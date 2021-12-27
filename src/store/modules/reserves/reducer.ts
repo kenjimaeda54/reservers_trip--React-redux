@@ -1,7 +1,7 @@
 import { produce } from 'immer'
 import { Trips } from '../../../utils'
 
-export type ActionsReserveReducer = {
+export type TripsSelect = {
   type: string
   payload: Trips
   id:number
@@ -13,24 +13,16 @@ export type DraftProps = {
   amount: number,
 }[]
 
-export const reserveReducer = (state = [], action: ActionsReserveReducer) => {
+export const reserveReducer = (state = [], action: TripsSelect) => {
   switch (action.type) {
     case 'ADD_RESERVE_SUCCESS':
+      // ja que estamos usando saga ele ficara responsável por aumentar
+      // ou diminuir o amount e nao o reducer
       // immer lida com a parte de imutabilidade
       // https://immerjs.github.io/immer/docs/introduction
       // produce recebe o estado atual e retorna um novo estado  para ele
-      return produce(state, (draft:DraftProps) => {
-        const findIndex = draft.findIndex(item => item.id === action.payload.id)
-        if (findIndex >= 0) {
-          // aqui usando immer tudo mutavel entao nao preciso ir na lista
-          // deletar um valor posso apenas ataulizar o valor que desejo
-          draft[findIndex].amount += 1
-        } else {
-          draft.push({
-            ...action.payload,
-            amount: 1
-          })
-        }
+      return produce(state, (draft:Trips[]) => {
+        draft.push(action.payload)
       })
     case 'REMOVE_RESERVE':
       return produce(state, (draft: DraftProps) => {

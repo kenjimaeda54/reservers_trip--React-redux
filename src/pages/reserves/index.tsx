@@ -47,8 +47,10 @@ export default function Reserves () {
           <TitleHeader>Voce solicitou </TitleHeader>
           <TitleHeaderBold> {reserves.length} viagens </TitleHeaderBold>
         </Header>
-           {reserves.map(reserve =>
-            <Section key={reserve.id}>
+           {reserves.map(reserve => {
+             const id = reserve.id * parseInt((Math.random() * 10000000).toString())
+             return (
+            <Section key={id}>
               <Img src={reserve.image} alt="img card reserve"/>
               <Title>{reserve.title}</Title>
               <WrapQuantity>
@@ -64,7 +66,9 @@ export default function Reserves () {
                   <Delete />
               </Button>
             </Section>
-           )}
+
+             )
+           })}
         <Reserve>
            <TitleReserve>Solicitar reserva</TitleReserve>
         </Reserve>
