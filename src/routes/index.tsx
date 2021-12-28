@@ -1,12 +1,12 @@
-import { Route, Routes } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import Home from '../pages/home'
 import Reserves from '../pages/reserves'
 
 export function AppRoutes () {
   return (
-  <Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/reservas" element={<Reserves />} />
-  </Routes>
+  <Switch>
+    <Route exact path="/" component={Home}/>
+    <Route exact path="/reservas" component={Reserves} />
+  </Switch>
   )
 }

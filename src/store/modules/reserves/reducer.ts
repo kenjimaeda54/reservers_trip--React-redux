@@ -31,10 +31,7 @@ export const reserveReducer = (state = [], action: TripsSelect) => {
         // segundo parametro quantos elementos desejo excluir
         draft.splice(findIndex, 1)
       })
-    case 'UPDATE_RESERVE': {
-      if (action.amount <= 0) {
-        return state
-      }
+    case 'UPDATE_RESERVE_SUCCESS': {
       return produce(state, (draft: DraftProps) => {
         const findIndex = draft.findIndex(item => item.id === action.id)
         draft[findIndex].amount = action.amount

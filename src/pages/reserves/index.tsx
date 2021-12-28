@@ -17,7 +17,7 @@ import {
 } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { Trips } from '../../utils'
-import { removeReserve, updateReserve } from '../../store/modules/reserves/action'
+import { removeReserve, updateReserveRequest } from '../../store/modules/reserves/action'
 
 interface ITrips extends Trips {
   amount: number;
@@ -34,11 +34,11 @@ export default function Reserves () {
   // por boas pratcias as funcoes tem que ser pequenas e ter apenas uma responsabilidade
   // fazer duas fucnoes para adicionar e remover e melhor que faze   uma unica funcao
   function decrementReserve (trips:ITrips) {
-    dispatch(updateReserve(trips.id, Number(trips.amount - 1)))
+    dispatch(updateReserveRequest(trips.id, Number(trips.amount - 1)))
   }
 
   function incrementUReserve (trips:ITrips) {
-    dispatch(updateReserve(trips.id, Number(trips.amount + 1)))
+    dispatch(updateReserveRequest(trips.id, Number(trips.amount + 1)))
   }
 
   return (
